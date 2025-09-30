@@ -6,7 +6,7 @@
       "src": "dashboard/package.json",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "dashboard/build"
+        "distDir": "build"
       }
     },
     {
@@ -45,11 +45,11 @@
     },
     {
       "src": "/static/(.*)",
-      "dest": "/dashboard/build/static/$1"
+      "dest": "/static/$1"
     },
     {
       "src": "/(.*)",
-      "dest": "/dashboard/build/index.html"
+      "dest": "/index.html"
     }
   ],
   "env": {
@@ -60,8 +60,5 @@
       "REACT_APP_API_URL": "https://smart-traffic-management.vercel.app/api",
       "REACT_APP_SOCKET_URL": "https://smart-traffic-management.vercel.app"
     }
-  },
-  "installCommand": "cd dashboard && npm install",
-  "buildCommand": "cd dashboard && npm run build",
-  "outputDirectory": "dashboard/build"
+  }
 }
