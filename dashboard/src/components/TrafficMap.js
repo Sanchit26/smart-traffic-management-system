@@ -186,7 +186,8 @@ const TrafficMap = ({ selectedJunction, setSelectedJunction }) => {
     setSimulationStatus('loading');
     
     try {
-      const resp = await axios.post('http://localhost:5050/api/start-simulation');
+      const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:5050';
+      const resp = await axios.post(`${apiUrl}/api/start-simulation`);
       if (resp.data && resp.data.status === 'success') {
         setSimulationStatus('success');
         // Set data source to simulation for this session
@@ -525,7 +526,7 @@ const TrafficMap = ({ selectedJunction, setSelectedJunction }) => {
             </div>
             <div className="bg-gray-900 rounded-xl aspect-video flex items-center justify-center mb-6 overflow-hidden">
               <img
-                src="http://localhost:5050/api/cv-stream"
+                src={`${process.env.REACT_APP_API_URL || 'http://localhost:5050'}/api/cv-stream`}
                 alt="AI-processed CCTV feed"
                 className="w-full h-full object-cover"
                 style={{ maxWidth: '100%', maxHeight: '100%' }}

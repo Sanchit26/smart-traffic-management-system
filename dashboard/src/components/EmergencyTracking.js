@@ -128,7 +128,8 @@ const EmergencyTracking = () => {
 
   const fetchEmergencyData = async () => {
     try {
-      const response = await axios.get('http://localhost:5050/api/map-data', {
+      const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:5050';
+      const response = await axios.get(`${apiUrl}/api/map-data`, {
         timeout: 10000 // 10 second timeout
       });
       setEmergencyVehicles(response.data.emergency_vehicles || []);

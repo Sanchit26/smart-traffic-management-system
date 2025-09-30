@@ -29,7 +29,8 @@ const ModeToggle = ({ selectedJunction, setSelectedJunction }) => {
     setIsLoading(true);
     try {
       const newMode = stats.mode === 'automation' ? 'manual' : 'automation';
-      await axios.post('http://localhost:5050/api/mode', { mode: newMode });
+      const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:5050';
+      await axios.post(`${apiUrl}/api/mode`, { mode: newMode });
       toast.success(`Switched to ${newMode} mode`);
     } catch (err) {
       toast.error('Failed to toggle mode');

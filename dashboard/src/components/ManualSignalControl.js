@@ -16,7 +16,8 @@ const ManualSignalControl = () => {
 
   useEffect(() => {
     // Initialize Socket.IO connection
-    const newSocket = io('http://localhost:5050', {
+    const socketUrl = process.env.REACT_APP_SOCKET_URL || 'http://localhost:5050';
+    const newSocket = io(socketUrl, {
       transports: ['polling']
     });
 

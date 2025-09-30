@@ -15,7 +15,8 @@ const IndianVehicleDisplay = () => {
           ? '/api/simulation-data' 
           : '/api/cv-vehicle-data';
         
-        const response = await fetch(`http://localhost:5050${endpoint}`);
+        const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:5050';
+        const response = await fetch(`${apiUrl}${endpoint}`);
         const data = await response.json();
         
         setVehicleData(data);

@@ -29,7 +29,8 @@ export const SocketProvider = ({ children }) => {
   // Fetch signals vehicle data
   const fetchSignalsVehicleData = async () => {
     try {
-      const response = await fetch('http://localhost:5050/api/signals-vehicle-data');
+      const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:5050';
+      const response = await fetch(`${apiUrl}/api/signals-vehicle-data`);
       if (response.ok) {
         const data = await response.json();
         setSignalsVehicleData(data);
@@ -47,7 +48,8 @@ export const SocketProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    const newSocket = io('http://localhost:5050', {
+    const socketUrl = process.env.REACT_APP_SOCKET_URL || 'http://localhost:5050';
+    const newSocket = io(socketUrl, {
       transports: ['websocket'],
       autoConnect: true,
       reconnection: true,

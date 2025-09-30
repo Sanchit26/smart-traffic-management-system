@@ -34,7 +34,8 @@ const AnalyticsPanel = () => {
 
   const fetchAnalytics = async () => {
     try {
-      const response = await axios.get('http://localhost:5050/api/analytics', {
+      const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:5050';
+      const response = await axios.get(`${apiUrl}/api/analytics`, {
         timeout: 10000 // 10 second timeout
       });
       setAnalytics(response.data);

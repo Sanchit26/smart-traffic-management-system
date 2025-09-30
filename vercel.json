@@ -1,0 +1,79 @@
+{
+  "version": 2,
+  "name": "smart-traffic-management",
+  "builds": [
+    {
+      "src": "dashboard/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dashboard/build"
+      }
+    },
+    {
+      "src": "api/index.py",
+      "use": "@vercel/python"
+    },
+    {
+      "src": "api/simulation-data.py",
+      "use": "@vercel/python"
+    },
+    {
+      "src": "api/cv-vehicle-data.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/simulation-data",
+      "dest": "/api/simulation-data.py"
+    },
+    {
+      "src": "/api/cv-vehicle-data",
+      "dest": "/api/cv-vehicle-data.py"
+    },
+    {
+      "src": "/api/auth/(.*)",
+      "dest": "/api/auth.py"
+    },
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/index.py"
+    },
+    {
+      "src": "/static/(.*)",
+      "dest": "/dashboard/build/static/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/dashboard/build/index.html"
+    }
+  ],
+  "functions": {
+    "api/index.py": {
+      "runtime": "python3.9"
+    },
+    "api/simulation-data.py": {
+      "runtime": "python3.9"
+    },
+    "api/cv-vehicle-data.py": {
+      "runtime": "python3.9"
+    },
+    "api/auth.py": {
+      "runtime": "python3.9"
+    }
+  },
+  "env": {
+    "REACT_APP_API_URL": "@react_app_api_url",
+    "REACT_APP_SOCKET_URL": "@react_app_socket_url",
+    "FLASK_ENV": "production"
+  },
+  "build": {
+    "env": {
+      "REACT_APP_API_URL": "https://smart-traffic-management.vercel.app",
+      "REACT_APP_SOCKET_URL": "https://smart-traffic-management.vercel.app"
+    }
+  },
+  "installCommand": "cd dashboard && npm install",
+  "buildCommand": "cd dashboard && npm run build",
+  "outputDirectory": "dashboard/build"
+}

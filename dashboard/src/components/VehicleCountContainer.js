@@ -22,7 +22,8 @@ const VehicleCountContainer = ({ dataSource = 'auto' }) => {
   // Fetch simulation data
   const fetchSimulationData = async () => {
     try {
-      const response = await fetch('http://localhost:5050/api/simulation-data');
+      const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:5050';
+      const response = await fetch(`${apiUrl}/api/simulation-data`);
       if (response.ok) {
         const data = await response.json();
         setSimulationData(data);
@@ -35,7 +36,8 @@ const VehicleCountContainer = ({ dataSource = 'auto' }) => {
   // Fetch CV vehicle data
   const fetchCvVehicleData = async () => {
     try {
-      const response = await fetch('http://localhost:5050/api/cv-vehicle-data');
+      const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:5050';
+      const response = await fetch(`${apiUrl}/api/cv-vehicle-data`);
       if (response.ok) {
         const data = await response.json();
         setCvVehicleData(data);
@@ -48,7 +50,8 @@ const VehicleCountContainer = ({ dataSource = 'auto' }) => {
   // Fetch emergency alerts
   const fetchEmergencyAlerts = async () => {
     try {
-      const response = await fetch('http://localhost:5050/api/emergency-alerts');
+      const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:5050';
+      const response = await fetch(`${apiUrl}/api/emergency-alerts`);
       if (response.ok) {
         const data = await response.json();
         setEmergencyAlerts(data.alerts || []);
