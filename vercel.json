@@ -96,8 +96,9 @@
   },
   "build": {
     "env": {
-      "REACT_APP_API_URL": "https://smart-traffic-management.vercel.app/api",
-      "REACT_APP_SOCKET_URL": "https://smart-traffic-management.vercel.app",
+      "REACT_APP_API_URL": "https://smart-traffic-management-system-khaki.vercel.app/api",
+      "REACT_APP_SOCKET_URL": "https://smart-traffic-management-system-khaki.vercel.app",
+      "PUBLIC_URL": "",
       "CI": "false"
     }
   }
