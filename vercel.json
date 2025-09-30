@@ -1,16 +1,23 @@
 {
-  "version": 2,
-  "name": "smart-traffic-management",
   "builds": [
     {
       "src": "dashboard/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "build"
-      }
+      "use": "@vercel/static-build"
     },
     {
-      "src": "api/*.py",
+      "src": "api/index.py",
+      "use": "@vercel/python"
+    },
+    {
+      "src": "api/simulation-data.py",
+      "use": "@vercel/python"
+    },
+    {
+      "src": "api/cv-vehicle-data.py",
+      "use": "@vercel/python"
+    },
+    {
+      "src": "api/auth.py",
       "use": "@vercel/python"
     }
   ],
@@ -20,7 +27,7 @@
       "dest": "/api/simulation-data.py"
     },
     {
-      "src": "/api/cv-vehicle-data", 
+      "src": "/api/cv-vehicle-data",
       "dest": "/api/cv-vehicle-data.py"
     },
     {
@@ -32,21 +39,8 @@
       "dest": "/api/index.py"
     },
     {
-      "src": "/(.*\\.(js|css|png|jpg|ico|svg))",
-      "dest": "/dashboard/build/$1"
-    },
-    {
       "src": "/(.*)",
-      "dest": "/dashboard/build/index.html"
+      "dest": "/dashboard/$1"
     }
-  ],
-  "env": {
-    "FLASK_ENV": "production"
-  },
-  "build": {
-    "env": {
-      "REACT_APP_API_URL": "https://smart-traffic-management.vercel.app/api",
-      "REACT_APP_SOCKET_URL": "https://smart-traffic-management.vercel.app"
-    }
-  }
+  ]
 }
