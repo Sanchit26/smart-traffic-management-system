@@ -1,8 +1,12 @@
 {
+  "version": 2,
   "builds": [
     {
       "src": "dashboard/package.json",
-      "use": "@vercel/static-build"
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "build"
+      }
     },
     {
       "src": "api/index.py",
@@ -39,8 +43,62 @@
       "dest": "/api/index.py"
     },
     {
+      "src": "/manifest.json",
+      "dest": "/manifest.json"
+    },
+    {
+      "src": "/favicon.ico",
+      "dest": "/favicon.ico"
+    },
+    {
+      "src": "/logo(.*).png",
+      "dest": "/logo$1.png"
+    },
+    {
+      "src": "/static/(.*)",
+      "dest": "/static/$1"
+    },
+    {
       "src": "/(.*)",
-      "dest": "/dashboard/$1"
+      "dest": "/index.html"
     }
-  ]
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        }
+      ]
+    },
+    {
+      "source": "/manifest.json",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        }
+      ]
+    }
+  ],
+  "env": {
+    "FLASK_ENV": "production"
+  },
+  "build": {
+    "env": {
+      "REACT_APP_API_URL": "https://smart-traffic-management.vercel.app/api",
+      "REACT_APP_SOCKET_URL": "https://smart-traffic-management.vercel.app",
+      "CI": "false"
+    }
+  }
 }
