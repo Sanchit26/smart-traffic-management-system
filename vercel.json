@@ -20,6 +20,10 @@
     {
       "src": "api/cv-vehicle-data.py",
       "use": "@vercel/python"
+    },
+    {
+      "src": "api/auth.py",
+      "use": "@vercel/python"
     }
   ],
   "routes": [
@@ -48,20 +52,6 @@
       "dest": "/dashboard/build/index.html"
     }
   ],
-  "functions": {
-    "api/index.py": {
-      "runtime": "python3.9"
-    },
-    "api/simulation-data.py": {
-      "runtime": "python3.9"
-    },
-    "api/cv-vehicle-data.py": {
-      "runtime": "python3.9"
-    },
-    "api/auth.py": {
-      "runtime": "python3.9"
-    }
-  },
   "env": {
     "REACT_APP_API_URL": "@react_app_api_url",
     "REACT_APP_SOCKET_URL": "@react_app_socket_url",
@@ -69,7 +59,7 @@
   },
   "build": {
     "env": {
-      "REACT_APP_API_URL": "https://smart-traffic-management.vercel.app",
+      "REACT_APP_API_URL": "https://smart-traffic-management.vercel.app/api",
       "REACT_APP_SOCKET_URL": "https://smart-traffic-management.vercel.app"
     }
   },
