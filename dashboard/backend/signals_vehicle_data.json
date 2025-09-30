@@ -1,0 +1,123 @@
+{
+  "signals_vehicle_data": [
+    {
+      "signal_id": 1,
+      "signal_name": "Main St & 1st Ave",
+      "location": {
+        "lat": 40.7128,
+        "lng": -74.0060
+      },
+      "lanes": {
+        "north_south": {
+          "lane_1": {"current_count": 8, "avg_hourly": 120, "peak_count": 15},
+          "lane_2": {"current_count": 6, "avg_hourly": 95, "peak_count": 12}
+        },
+        "east_west": {
+          "lane_1": {"current_count": 5, "avg_hourly": 85, "peak_count": 10},
+          "lane_2": {"current_count": 7, "avg_hourly": 110, "peak_count": 14}
+        }
+      },
+      "total_current": 26,
+      "total_hourly": 410,
+      "traffic_density": "medium"
+    },
+    {
+      "signal_id": 2,
+      "signal_name": "Oak Ave & 2nd St",
+      "location": {
+        "lat": 40.7589,
+        "lng": -73.9851
+      },
+      "lanes": {
+        "north_south": {
+          "lane_1": {"current_count": 12, "avg_hourly": 180, "peak_count": 22},
+          "lane_2": {"current_count": 9, "avg_hourly": 145, "peak_count": 18}
+        },
+        "east_west": {
+          "lane_1": {"current_count": 7, "avg_hourly": 125, "peak_count": 15},
+          "lane_2": {"current_count": 10, "avg_hourly": 160, "peak_count": 20}
+        }
+      },
+      "total_current": 38,
+      "total_hourly": 610,
+      "traffic_density": "high"
+    },
+    {
+      "signal_id": 3,
+      "signal_name": "Pine St & 3rd Ave",
+      "location": {
+        "lat": 40.7614,
+        "lng": -73.9776
+      },
+      "lanes": {
+        "north_south": {
+          "lane_1": {"current_count": 4, "avg_hourly": 65, "peak_count": 8},
+          "lane_2": {"current_count": 3, "avg_hourly": 50, "peak_count": 6}
+        },
+        "east_west": {
+          "lane_1": {"current_count": 6, "avg_hourly": 90, "peak_count": 12},
+          "lane_2": {"current_count": 5, "avg_hourly": 75, "peak_count": 10}
+        }
+      },
+      "total_current": 18,
+      "total_hourly": 280,
+      "traffic_density": "low"
+    },
+    {
+      "signal_id": 4,
+      "signal_name": "Broadway & Central",
+      "location": {
+        "lat": 40.7505,
+        "lng": -73.9934
+      },
+      "lanes": {
+        "north_south": {
+          "lane_1": {"current_count": 15, "avg_hourly": 220, "peak_count": 28},
+          "lane_2": {"current_count": 11, "avg_hourly": 175, "peak_count": 22}
+        },
+        "east_west": {
+          "lane_1": {"current_count": 13, "avg_hourly": 195, "peak_count": 25},
+          "lane_2": {"current_count": 9, "avg_hourly": 150, "peak_count": 19}
+        }
+      },
+      "total_current": 48,
+      "total_hourly": 740,
+      "traffic_density": "very_high"
+    },
+    {
+      "signal_id": 5,
+      "signal_name": "University Ave & Campus Dr",
+      "location": {
+        "lat": 40.7282,
+        "lng": -73.9942
+      },
+      "lanes": {
+        "north_south": {
+          "lane_1": {"current_count": 7, "avg_hourly": 105, "peak_count": 14},
+          "lane_2": {"current_count": 5, "avg_hourly": 80, "peak_count": 11}
+        },
+        "east_west": {
+          "lane_1": {"current_count": 8, "avg_hourly": 115, "peak_count": 16},
+          "lane_2": {"current_count": 6, "avg_hourly": 95, "peak_count": 13}
+        }
+      },
+      "total_current": 26,
+      "total_hourly": 395,
+      "traffic_density": "medium"
+    }
+  ],
+  "system_totals": {
+    "total_vehicles_detected": 156,
+    "total_hourly_average": 2435,
+    "peak_traffic_signal": 4,
+    "lowest_traffic_signal": 3,
+    "avg_density": "medium",
+    "last_updated": "2025-09-30T12:00:00Z"
+  },
+  "real_time_updates": {
+    "cv_integration": true,
+    "yolo_detection": true,
+    "lane_tracking": true,
+    "update_frequency": "1_second"
+  }
+}

@@ -1,0 +1,10 @@
+ultralytics==8.2.103
+opencv-python==4.10.0.84
+numpy==1.26.4
+pygame==2.6.0
+streamlit==1.38.0
+pillow==10.4.0
+matplotlib==3.9.2
+psutil==6.0.0
+supervision==0.20.0
+yt-dlp==2025.1.15
